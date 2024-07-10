@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>SugnIn Page</title>
+        <link th:href="@{/CSS/forget.css}" rel="stylesheet">
+        <script>
+ 		const find = '[[${findPW}]]';
+ 		const error = '[[${error}]]';
+
+ 		if (error && error !== '') {
+            alert(error);
+        }
+ 		if(find && find !== ''){
+ 			alert(find);	
+ 			sub();
+ 		}
+ 		function sub(){
+	            document.forms[0].submit();
+			}
+    	
+        
+        </script>
+    </head>
+    <body>
+    	<form action="/findPW" method="post">
+        <div class="container">
+            <div class="form">
+              <h4 class="bold title">비밀번호 찾기</h4>
+              <div class="icons">
+                <div class="icon"><a href="https://www.naver.com/"><img src="/img/naver.png" width="30px" height="30px"></a></div>
+                <div class="icon"><a href="https://www.facebook.com/"><img src="/img/facebook.jpg" width="30px" height="30px"></a></div>
+                <div class="icon"><a href="https://www.instagram.com/"><img src="/img/instagram.jpg" width="30px" height="30px"></a></div>
+                
+              </div>
+              <p class="normal light">아이디 또는 이메일을 입력해 주세요.</p>
+              <input type="text" placeholder="ID or Email" class="normal name" name="id">
+              <input class="b-button" type="button" value="Find" onclick="sub()">
+              <a href="SignIn"><input class="b-button" type="button" value="SIGN IN"></a>
+            </div>
+          </div>
+          </form>
+          		
+
+
+    </body>
+
+</html>

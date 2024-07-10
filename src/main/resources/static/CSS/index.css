@@ -1,0 +1,123 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+header{
+    margin: 0px;
+    padding: 0px;
+    display:grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 40px 80px;
+}
+
+ul{list-style-type: none;}
+
+.lo_ul{
+    text-align: right;
+    margin: 10px 10px 0px 0px;
+
+}
+.lo_ul li{
+    display: inline;
+    border-left: solid 1px black;
+    padding: 0px 10px 0px 10px;
+    font-size: 13px;
+}
+
+.lo_ul li:first-child{
+    border-left: none;
+}
+
+.me_ul{
+    text-align: center;
+    margin-top: 30px;
+}
+.me_ul li{
+    display: inline;
+    padding: 10px 70px 0px 0px;
+    font-size: 17px;
+}
+
+#item1{
+    grid-column: 1/4;
+    background-color: rgb(245, 245, 245);
+    
+}
+#item2{
+    grid-column: 1/2;
+    margin: 10px 20px 10px 20px;
+}
+#item3{
+    grid-column: 2/4;
+}
+.img1{
+    vertical-align: middle;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+footer{
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.side{
+    margin: 20px 20px 20px 20px;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border: solid 2px green;
+    border-radius: 3px;
+    
+}
+.side ul{
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+.side ul li{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-size: 16px;
+    position: relative;
+    font-weight: normal;
+}
+
+.side ul li::before{
+    content: "└";
+    position: absolute;
+    left: -15px;
+}
+.toggle li{
+    display: none;
+}
+.toggle:hover li{
+    display:block;
+}
+
+.displ{
+    margin: 20px 20px 20px 20px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    border: solid 2px green;
+    background-color: rgb(245, 245, 245);
+}
+
+table{
+    
+    width: 100%;
+    font-size: 20px;
+    font-weight: normal;
+    
+}
+table td img{
+    border: solid 2px black
+}

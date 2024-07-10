@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8">
+    <title>Home Page</title>
+    <script>
+    	function up(){document.forms[0].submit();}
+    </script>
+    <style>
+    	body {
+    		background-color :  rgb(176, 253, 172);
+    		margin : 0px;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    
+		}
+    	table tr td{
+    		background-color : white;
+    		border : solid 1px black;
+    		text-align : center;
+    		width : 250px;
+    		height : 50px;
+    		font-size : 18px;
+    		font-weight : nomal;
+    	}
+    	table{
+    		margin-bottom : 20px;
+    		border-collapse : collapse;
+    		
+    	}
+    	.kind{
+    		border : none;
+    		text-align : center;
+    		font-size : 20px;
+    		
+    	}
+    	.title{
+    		text-align : center;
+    		margin-bottom : 20px;
+    	}
+    	form{
+    		text-align : center;
+    	}
+    	#updat{
+    		width : 200px;
+    		height : 70px;
+    		font-size : 20px;
+    	}
+    </style>
+</head>
+<body>
+	<div class="container">
+	<h1 class="title">관리자 페이지</h1>
+	<form action="/update" method="get">
+		<table>
+			<tr>
+				<td>종류</td>
+				<td>현재 재고 수량</td>
+				<td>수정 재고 수량</td>
+			</tr>
+			<tr>
+				<td>전기 자전거</td>
+				<td>[[${Display.getElect()}]]</td>
+				<td><input th:value="${Display.getElect}" name="elect" class="kind"></td>
+			</tr>
+			<tr>
+				<td>체인리스 전기 자전거</td>
+				<td>[[${Display.getChain()}]]</td>
+				<td><input th:value="${Display.getChain}" name="chain" class="kind"></td>
+			</tr>
+			<tr>
+				<td>MTB</td>
+				<td>[[${Display.getMtb()}]]</td>
+				<td><input th:value="${Display.getMtb}" name="mtb" class="kind"></td>
+			</tr>
+			<tr>
+				<td>일반 자전거</td>
+				<td>[[${Display.getNomal()}]]</td>
+				<td><input th:value="${Display.getNomal}" name="nomal" class="kind"></td>
+			</tr>
+			<tr>
+				<td>[의자 X] 전동 킥보드</td>
+				<td>[[${Display.getNokick()}]]</td>
+				<td><input th:value="${Display.getNokick}" name="nokick" class="kind"></td>
+			</tr>
+			<tr>
+				<td>[의자 O] 전동 킥보드</td>
+				<td>[[${Display.getOnkick()}]]</td>
+				<td><input th:value="${Display.getOnkick}" name="onkick" class="kind"></td>
+			</tr>
+			<tr>
+				<td>[손잡이 X] 전동 이륜평행차</td>
+				<td>[[${Display.getNocar()}]]</td>
+				<td><input th:value="${Display.getNocar}" name="nocar" class="kind"></td>
+			</tr>
+			<tr>
+				<td>[손잡이 O] 전동 이륜평행차</td>
+				<td>[[${Display.getOncar()}]]</td>
+				<td><input th:value="${Display.getNocar}" name="oncar" class="kind"></td>
+			</tr>
+		</table>
+		<button type="button" value="Update" onclick="up()" id="updat">Update</button>
+		<a href="/login_home"><input type=button value="Main" id="updat"></a>
+	</form>
+	</div>
+		
+        
+	
+	
+	
+</body>
+</html>
