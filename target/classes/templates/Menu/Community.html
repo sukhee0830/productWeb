@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home Page</title>
+        <link th:href="@{/CSS/index.css}" rel="stylesheet">
+        <style>
+		 body{
+			    margin: 0px;
+			    padding: 0px;
+			}
+			a{
+				text-decoration: none;
+				color: inherit;
+			}
+			header{
+			    margin: 0px;
+			    padding: 0px;
+			    display:grid;
+			    grid-template-columns: 15% 70% 15%;
+			    grid-template-rows: 40px 80px;
+			}
+			
+			ul{list-style-type: none;}
+			
+			.lo_ul{
+			    text-align: right;
+			    margin: 10px 10px 0px 0px;
+			
+			}
+			.lo_ul li{
+			    display: inline;
+			    border-left: solid 1px black;
+			    padding: 0px 10px 0px 10px;
+			    font-size: 13px;
+			}
+			
+			.lo_ul li:first-child{
+			    border-left: none;
+			}
+			
+			.me_ul{
+			    text-align: center;
+			    margin-top: 30px;
+			}
+			.me_ul li{
+			    display: inline;
+			    padding: 10px 70px 0px 0px;
+			    font-size: 17px;
+			}
+			
+			#item1{
+			    grid-column: 1/4;
+			    background-color: rgb(245, 245, 245);
+			    
+			}
+			#item2{
+			    grid-column: 1/2;
+			    margin: 10px 20px 10px 20px;
+			}
+			#item3{
+			    grid-column: 2/4;
+			}
+			.img1{
+			    vertical-align: middle;
+			}
+			
+			main{
+			    display: grid;
+			    grid-template-columns: 100%;
+			}
+			
+			footer{
+			    display: grid;
+			    grid-template-columns: 300px auto;
+			}
+			
+			.side{
+			    margin: 20px 20px 20px 20px;
+			    background-color: rgb(245, 245, 245);
+			    padding: 10px;
+			    border: solid 2px green;
+			    border-radius: 3px;
+			    
+			}
+			.side ul{
+			    padding: 0px;
+			    margin: 0px;
+			    font-weight: bold;
+			}
+			.side ul li{
+			    margin-top: 5px;
+			    margin-bottom: 5px;
+			    margin-left: 20px;
+			    font-size: 16px;
+			    position: relative;
+			    font-weight: normal;
+			}
+			
+			.side ul li::before{
+			    content: "└";
+			    position: absolute;
+			    left: -15px;
+			}
+			.toggle li{
+			    display: none;
+			}
+			.toggle:hover li{
+			    display:block;
+			}
+			
+			.displ{
+			    margin: 20px 20px 20px 20px;
+			    font-size: 40px;
+			    font-weight: bold;
+			    text-align: center;
+			    border: solid 2px green;
+			    background-color: rgb(245, 245, 245);
+			}
+
+			
+			#Story {
+
+			    background-color: rgb(245, 245, 245);
+			    padding: 10px;
+			    margin : 20px;
+			    border: solid 2px green;
+			    border-radius: 3px;
+			    display: grid;
+			    grid-template-rows: auto 40px;
+			    text-align : center;
+			}
+			
+			#write {
+			    width: 80px;
+			    height: 40px;
+			    float: right;
+			}
+						table {
+	            width: 100%;
+	            border-top: 1px solid #d3d3d3;
+	            border-collapse: collapse;
+	            }
+            th { 
+            	background-color: #d3d3d3 ; 
+            	border-top: 3px solid #727272;
+            }
+            th, td {
+	            border-bottom: 1px solid #d3d3d3;
+	            padding: 10px;
+            }
+			 .grey { 
+			     color: #727272;}
+			#strong { font-weight: 900;}
+			.greylist {
+				  width: 50px;
+				  height: 30px;
+				  font-weight: 900;
+				  color: white;
+				  text-align: center;
+				  background: grey;
+				  border: solid 2px white;
+				  border-radius: 5px;
+			  }
+			 .gradient {
+				  width: 80px;
+				  height: 30px;
+				  font-weight: 900;
+				  color: white;
+				  text-align: center;
+				  background: linear-gradient( to bottom, grey, black );
+				  border: solid 2px white;
+				  border-radius: 5px;
+			  }
+
+            .left {text-align: left;}
+            .right {  float: right;}
+            .center { text-align: center;}
+			
+			a {color:black;
+				text-decoration-line : none;}
+				
+			.container{
+				margin : 20px;
+				display: grid;
+				grid-template-rows: 40px auto 30px;
+					
+			}
+        
+        </style>
+    </head>
+    <body>
+        <header class="wrapper">
+            <div id="item1">
+                <ul class="lo_ul">
+                    <li>[[${info}]]님 환영합니다.</li>
+                    <li><a href="/logout">logout</a></li>
+                    <li><a href="/service">service</a></li>
+                </ul>
+            </div>
+            <div id="item2">
+                <a href="login_home"><img src="/img/project_logo.png" width="100%" height="100%"></a>
+            </div>
+            <div id="item3">
+                <ul class="me_ul">
+                    <li><a href="/Kind">대여 종류</a></li>
+                    <li><a href="/Apply">대여 신청</a></li>
+                    <li><a href="/Infor">이용안내</a></li>
+                    <li><a href="/Map">가능 지역</a></li>
+                    <li><img src="/img/search.png" width="30px" height="30px" class="img1">&nbsp
+                        &nbsp<img src="/img/menu.png" width="30px" height="30px" class="img1">
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <img src="/img/mainimg.jpg" width="100%">
+        </main>
+        <footer>
+            <div class="side">
+                <hr>
+                <ul>즐겨찾는 게시판
+                    <a href="/community"><li>&nbsp;전체글 보기</li></a>
+                </ul>
+                <hr>
+                <ul>대여 종류
+                    <a href="/Electro"><li>&nbsp;전기 자전거</li></a>
+                    <a href="/Chain"><li>&nbsp;체인리스 자전거</li></a>
+                    <a href="Mtb"><li>&nbsp;MTB</li></a>
+                    <a href="Nomal"><li>&nbsp;일반 자전거</li></a>
+                    <a href="Nokick"><li>&nbsp;의자X 전동 킥보드</li></a>
+                    <a href="Onkick"><li>&nbsp;의자O 전동 킥보드</li></a>
+                    <a href="Nocar"><li>&nbsp;손잡이X 전동 이륜평행차</li></a>
+                    <a href="Oncar"><li>&nbsp;손잡이O 전동 이륜평행차</li></a>
+                </ul>
+                <hr>
+                <ul>이용안내
+                    <a href="/Service"><li>&nbsp;서비스 안내</li></a>
+                    <a href="/Service"><li>&nbsp;가격 안내</li></a>
+                </ul>
+                <hr>
+                <ul>마음의 소리
+                    <a href="/Sound"><li>건의사항</li></a>
+                    <a href="/Free"><li>자유 게시판</li></a>
+                </ul>
+                </div>
+                <div class="container">
+					<form>
+						<span> ▷ 총 3개의 게시물이 있습니다. </span>
+	            		<span class="grey" id="strong">SELECT</span>
+	    				<select>
+	    					<option value="제목"></option>
+	    					<option value="글쓴이"></option>
+	    				</select>
+						<input type="text"> <input type="button" name="검색" class="gradient" value="검색" >
+					</form>
+					<table>
+	    				<tr>
+	        				<th>번호</th>
+	        				<th>제목</th>
+	        				<th>글쓴이</th>
+	        				<th>일시</th>
+	    				</tr>
+						    <tr th:each="i : ${titles}">
+						    	<td class="center">
+						    		<a th:href = "@{/CommunityDB(serial = ${i.getSerial})}">
+						    			<span th:text="${i.getSerial}"></span>
+						    		</a>
+						    	</td>
+						    	<td class="left">
+						    		<a th:href = "@{/CommunityDB(serial = ${i.getSerial})}">
+						    			<span th:text="${i.getId}" id="postId"></span>
+						    		</a>
+						    	</td>
+						    	<td class="center">
+						    		<a th:href = "@{/CommunityDB(serial = ${i.getSerial})}">
+						    			<span th:text="${i.getTitle}" id="postId"></span>
+						    		</a>
+						    	</td>
+						    	<td class="center">
+						    		<a th:href = "@{/CommunityDB(serial = ${i.getSerial})}">
+						    			<span th:text="${i.getCdate}" id="postId"></span>
+						    		</a>
+						    	</td>
+						    </tr>
+					</table>
+					</br>
+	
+					<div class="right">
+						<a href="/communityText"><input type="button" value="작성하기" class="gradient"></a>
+					</div>
+				</div>
+        </footer>
+
+
+    </body>
+</html>
+
