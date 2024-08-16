@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home Page</title>
+        <link th:href="@{/CSS/index.css}" rel="stylesheet">
+        <style>
+        	#insertText {
+			    margin: 20px;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    text-align: center;
+			}
+			
+			#text {
+			    font-size: 30px;
+			    font-weight: bold;
+			}
+			
+			.buttons-wrapper {
+			    display: flex;
+			    flex-direction: column;
+			    justify-content: center;
+			    margin-top: 20px;
+			    align-items: center;
+			}
+			
+			.buttons-wrapper input[type="button"] {
+			    margin: 10px 0;
+			}
+			
+			.clickButton{
+				background-color:#079992;
+				color:white;
+				padding:12px 60px;
+				color:#fff;
+				font-size:14px;
+				border-radius:25px;
+				cursor : pointer;
+			}
+			.clickButton:hover{
+			    background-color:#000;
+			    color:white;
+			}
+		</style>
+    </head>
+    <body>
+        <header class="wrapper">
+            <div id="item1">
+                <ul class="lo_ul">
+                    <li>[[${info}]]님 환영합니다.</li>
+                    <li><a href="/logout">logout</a></li>
+                    <li><a href="/service">service</a></li>
+                </ul>
+            </div>
+            <div id="item2">
+                <a href="login_home"><img src="/img/project_logo.png" width="100%" height="100%"></a>
+            </div>
+            <div id="item3">
+                <ul class="me_ul">
+                    <li><a href="/Kind">대여 종류</a></li>
+                    <li><a href="/Apply">대여 신청</a></li>
+                    <li><a href="/Infor">이용안내</a></li>
+                    <li><a href="/Map">가능 지역</a></li>
+                    <li><img src="/img/search.png" width="30px" height="30px" class="img1">&nbsp
+                        &nbsp<img src="/img/menu.png" width="30px" height="30px" class="img1">
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <img src="/img/mainimg.jpg" width="100%">
+        </main>
+        <footer>
+            <div class="side">
+                <hr>
+                <ul>즐겨찾는 게시판
+                    <a href="/community"><li>&nbsp;전체글 보기</li></a>
+                </ul>
+                <hr>
+                <ul>대여 종류
+                    <a href="/Electro"><li>&nbsp;전기 자전거</li></a>
+                    <a href="/Chain"><li>&nbsp;체인리스 자전거</li></a>
+                    <a href="Mtb"><li>&nbsp;MTB</li></a>
+                    <a href="Nomal"><li>&nbsp;일반 자전거</li></a>
+                    <a href="Nokick"><li>&nbsp;의자X 전동 킥보드</li></a>
+                    <a href="Onkick"><li>&nbsp;의자O 전동 킥보드</li></a>
+                    <a href="Nocar"><li>&nbsp;손잡이X 전동 이륜평행차</li></a>
+                    <a href="Oncar"><li>&nbsp;손잡이O 전동 이륜평행차</li></a>
+                </ul>
+                <hr>
+                <ul>이용안내
+                    <a href="/Service"><li>&nbsp;서비스 안내</li></a>
+                    <a href="/Service"><li>&nbsp;가격 안내</li></a>
+                </ul>
+                <hr>
+                <ul>마음의 소리
+                    <a href="/Sound"><li>건의사항</li></a>
+                    <a href="/Free"><li>자유 게시판</li></a>
+                </ul>
+            </div>
+            <div>
+            	<div id="insertText">
+            		<div id="text">서비스 페이지입니다.</div>
+            		<div class="buttons-wrapper">
+            			<a href="/login_home"><input type=button value="홈으로 돌아가기" class="clickButton"></a>
+            		</div>
+				</div>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
+

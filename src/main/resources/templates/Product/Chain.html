@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home Page</title>
+        <link th:href="@{/CSS/Product.css}" rel="stylesheet">
+        <script>
+		    function minus() {
+		        var countProduct = document.getElementById("count");
+		        var countValue = parseInt(countProduct.value);
+		        if (countValue > 0) {
+		            countProduct.value = countValue - 1;
+		        }
+		    }
+	
+		    function plus() {
+		    	var countProduct = document.getElementById("count");
+		        var countValue = parseInt(countProduct.value);
+		        countProduct.value = countValue + 1;
+		    }
+		    
+		    function updateAndSubmit(formId) {
+		        var count = document.getElementById("count").value;
+                if(parseInt(count) === 0){
+                    alert("구매하거나 장바구니에 추가할 수량을 선택해주세요.");
+                    return;
+                }
+		        var form = document.getElementById(formId);
+		        form.querySelector("input[name='count']").value = count;
+		        form.submit();
+		    }
+		</script>
+        
+    </head>
+    <body>
+        <header class="wrapper">
+            <div id="item1">
+                <ul class="lo_ul">
+                    <li>[[${info}]]님 환영합니다.</li>
+                    <li><a href="/logout">logout</a></li>
+                    <li><a href="/service">service</a></li>
+                </ul>
+            </div>
+            <div id="item2">
+                <a href="login_home"><img src="/img/project_logo.png" width="100%" height="100%"></a>
+            </div>
+            <div id="item3">
+                <ul class="me_ul">
+                    <li><a href="/Kind">대여 종류</a></li>
+                    <li><a href="/Apply">대여 신청</a></li>
+                    <li><a href="/Infor">이용안내</a></li>
+                    <li><a href="/Map">가능 지역</a></li>
+                    <li><img src="/img/search.png" width="30px" height="30px" class="img1">&nbsp
+                        &nbsp<img src="/img/menu.png" width="30px" height="30px" class="img1">
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <img src="/img/mainimg.jpg" width="100%">
+        </main>
+        <footer>
+            <div class="side">
+                <hr>
+                <ul>즐겨찾는 게시판
+                    <a href="/community"><li>&nbsp;전체글 보기</li></a>
+                </ul>
+                <hr>
+                <ul>대여 종류
+                    <a href="/Electro"><li>&nbsp;전기 자전거</li></a>
+                    <a href="/Chain"><li>&nbsp;체인리스 자전거</li></a>
+                    <a href="Mtb"><li>&nbsp;MTB</li></a>
+                    <a href="Nomal"><li>&nbsp;일반 자전거</li></a>
+                    <a href="Nokick"><li>&nbsp;의자X 전동 킥보드</li></a>
+                    <a href="Onkick"><li>&nbsp;의자O 전동 킥보드</li></a>
+                    <a href="Nocar"><li>&nbsp;손잡이X 전동 이륜평행차</li></a>
+                    <a href="Oncar"><li>&nbsp;손잡이O 전동 이륜평행차</li></a>
+                </ul>
+                <hr>
+                <ul>이용안내
+                    <a href="/Service"><li>&nbsp;서비스 안내</li></a>
+                    <a href="/Service"><li>&nbsp;가격 안내</li></a>
+                </ul>
+                <hr>
+                <ul>마음의 소리
+                    <a href="/Sound"><li>건의사항</li></a>
+                    <a href="/Free"><li>자유 게시판</li></a>
+                </ul>
+                </div>
+            <img src="/img/chainlesselbike.jpg" height="500px" width="500px">
+            <form action = "shopping" method = "get">
+            <div class="product">
+            	<ul> 
+            		<li>체인리스 전기 자전거</li>
+            	<hr>
+            		<li>1,000원/km</li>
+            		<li>잔여 개수 [[${Display.getChain()}]]</li>
+            	<hr>
+            		<li>
+            			<div class="plmi-control" onclick="minus()">-</div>
+	                    <input type="text" class="count-type" value="1" id="count">
+	                    <div class="plmi-control" onclick="plus()">+</div>
+	                </li>
+	                <li>
+	                	<button type="button" onclick="updateAndSubmit('basketForm')" id="basket" class = "shop">장바구니 추가</button>
+	                   	<button type="button" onclick="updateAndSubmit('shoppingForm')" id="shopping" class = "shop">바로 대여하기</button>
+	                </li>
+	                <hr>
+            	</ul>
+            	</div>  
+	            </form>
+			    <form id="basketForm" action="/chain_basket" method="get">
+			        <input type="hidden" id="basketCount" value="1" name="count">
+			    </form>
+			    <form id="shoppingForm" action="/shopping" method="get">
+			        <input type="hidden" id="shoppingCount" name="count" value="1">
+                    <input type="hidden" id="productName" name="productName" value="chain">
+			    </form>
+        	
+		</footer>
+    </body>
+</html>
+
